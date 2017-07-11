@@ -8,8 +8,8 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 
-@Path("/translation/key/{key}/lang/{lang}")
-public class translate
+@Path("/lookup/key/{key}/lang/{lang}")
+public class lookup
 {
     @GET
     @Produces("application/json")
