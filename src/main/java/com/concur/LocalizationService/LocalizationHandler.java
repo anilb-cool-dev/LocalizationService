@@ -48,6 +48,14 @@ public class LocalizationHandler extends DefaultHandler
 
     public static String getValue(String key)
     {
-        return (String)map.get(key);
+        if (map != null)
+        {
+            String value = (String)map.get(key);
+            return value != null ? value : "";
+        }
+        else
+        {
+            return "";
+        }
     }
 }

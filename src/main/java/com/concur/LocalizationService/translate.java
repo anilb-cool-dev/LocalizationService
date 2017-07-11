@@ -13,8 +13,9 @@ public class translate
 {
     @GET
     @Produces("application/json")
-    public String lookupString(@PathParam("key") String key, @PathParam("lang") String lang, @Context HttpServletRequest request)
+    //http://localhost:8080/LocalizationService/translation/key/foo/lang/de
+    public String lookupString(@PathParam("key") String key, @PathParam("lang") String lang)
     {
-        return LocalizationHandler.getValue(key);
+        return "{\"value\":\"" + LocalizationHandler.getValue(key) + "\"}";
     }
 }
