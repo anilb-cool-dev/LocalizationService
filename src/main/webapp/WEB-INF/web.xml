@@ -15,6 +15,6 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 	</servlet-mapping>
 
 	<listener>
-		<listener-class>com.concur.LocalizationService.Localization</listener-class>
+		<listener-class>com.concur.LocalizationService.LocalizationServlet</listener-class>
 	</listener>
 </web-app>

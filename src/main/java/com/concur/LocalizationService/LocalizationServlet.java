@@ -1,32 +1,37 @@
-// Import required java libraries
 package com.concur.LocalizationService;
 
-import java.io.*;
-import javax.servlet.*;
-import javax.servlet.http.*;
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
+import java.io.File;
 
-// Extend HttpServlet class
-public class LocalizationServlet extends HttpServlet
+public class LocalizationServlet implements ServletContextListener
 {
-    public void init() throws ServletException
+    static String message;
+
+    public void contextInitialized(ServletContextEvent var1)
     {
-        // Do required initialization
+        File source = new File(var1.getServletContext().getRealPath("/WEB-INF/classes/Expense.xml").toString());
+        parse(source);
     }
 
-    public void doGet(HttpServletRequest request,
-                      HttpServletResponse response)
-            throws ServletException, IOException
+    public void contextDestroyed(ServletContextEvent var1)
     {
-        // Set response content type
-        response.setContentType("text/html");
 
-        // Actual logic goes here.
-        PrintWriter out = response.getWriter();
-        out.println("<h1>Hello World</h1>");
     }
 
-    public void destroy()
+    public void parse(File xmlFile)
     {
-        // do nothing.
+        try
+        {
+            SAXParserFactory factory = SAXParserFactory.newInstance();
+            SAXParser saxParser = factory.newSAXParser();
+            LocalizationHandler handler = new LocalizationHandler();
+            saxParser.parse(xmlFile, handler);
+        } catch (Exception e)
+        {
+            e.printStackTrace();
+        }
     }
 }
