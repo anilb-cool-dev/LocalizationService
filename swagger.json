@@ -1,0 +1,57 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is a REST service for a localized string lookup. For this service, you can use the api key `special-key` to test the authorization     filters.",
+    "version": "1.0.0",
+    "title": "Localized String Lookup",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {
+      "email": "anilb@concur.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "localization.concur.com",
+  "basePath": "/v1",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/lookup/key/{key}/lang/{lang}": {
+      "get": {
+        "summary": "Get the localized value of a label based on key and language",
+        "operationId": "getLocalizedValue",
+        "description": "Get the localized value",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "key",
+            "in": "path",
+            "description": "key to lookup",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "lang",
+            "in": "path",
+            "description": "langcode of the string",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "key not found"
+          }
+        }
+      }
+    }
+  }
+}
