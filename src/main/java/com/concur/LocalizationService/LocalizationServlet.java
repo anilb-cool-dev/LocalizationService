@@ -8,13 +8,9 @@ import javax.servlet.http.*;
 // Extend HttpServlet class
 public class LocalizationServlet extends HttpServlet
 {
-
-    private String message;
-
     public void init() throws ServletException
     {
         // Do required initialization
-        message = "Hello Expense";
     }
 
     public void doGet(HttpServletRequest request,
@@ -26,7 +22,7 @@ public class LocalizationServlet extends HttpServlet
 
         // Actual logic goes here.
         PrintWriter out = response.getWriter();
-        out.println("<h1>" + message + "</h1>");
+        out.println("<h1>Hello World</h1>");
     }
 
     public void destroy()
