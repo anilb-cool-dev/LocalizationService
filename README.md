@@ -3,9 +3,9 @@ This service allows you to retrieve a localized string based on an id and langua
 
 Modify tomcat-users.xml
 
-<tomcat-users>
-  <role rolename="manager-gui"/>
-  <role rolename="manager-script"/>
-  <user username="admin" password="s3cret" roles="manager-gui,manager-script" />
-</tomcat-users>
+&lt;tomcat-users&gt;
+  &lt;role rolename="manager-gui"
+  &lt;role rolename="manager-script"
+  &lt;user username="admin" password="s3cret" roles="manager-gui,manager-script"
+&lt;tomcat-users&gt;
 
